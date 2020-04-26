@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Infographic from "./components/Flyer";
+import SignIn from "./components/SIgnIn";
+import Layout from "./components/Layout";
+import { NAV_LIST } from "./config";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(true);
+  const [page, setPage] = useState("flyers");
+  const pageObj = NAV_LIST[page];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      {isAuth ? (
+        <Layout
+          title={pageObj.title}
+          setPage={setPage}
+          component={pageObj.component}
+        />
+      ) : (
+        <SignIn setIsAuth={setIsAuth} />
+      )}
+    </React.Fragment>
   );
 }
 
