@@ -62,7 +62,7 @@ export default function SignIn(props) {
         <form
           className={classes.form}
           noValidate
-          onSubmit={() => props.setIsAuth(true)}
+          onSubmit={() => props.setIsAuth(false)}
         >
           <TextField
             variant="outlined"
