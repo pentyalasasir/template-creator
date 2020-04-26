@@ -7,7 +7,7 @@ import Layout from "./components/Layout";
 import { NAV_LIST } from "./config";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const [page, setPage] = useState("flyers");
   const pageObj = NAV_LIST[page];
 
